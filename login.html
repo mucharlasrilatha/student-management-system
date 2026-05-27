@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+       nav{
+        border: 100px;
+        background-color: rgb(19, 18, 18);
+        font-size:large;
+        line-height:50px;
+        
+        height: 50px;
+        text-align:center;
+    }
+nav a{
+    
+    color:white;
+    margin-left: 60px;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+nav a:hover{
+    color:rgb(220, 127, 13);
+}
+   h1{
+    color:blue;
+    text-align: center;
+   }
+   form{
+    border:1px solid black;
+    background-color: dodgerblue;
+    text-align: center;
+    color:black;
+    width:300px;
+    margin-left:600px;
+    padding:10px;
+    font-size: larger;
+   }
+   label{
+    display: block;
+   }
+   button{
+    background-color: greenyellow;
+    color:black;
+   }
+
+</style>
 <body>
        <nav>
     <a href="index.html">Home</a>
@@ -13,8 +58,10 @@
     </nav>
     <h1>login to student management system</h1>
     <form action="Dashboard.html">
-     username <input type="text" name="username" placeholder="Enter username"><br><br>
-      Password <input type="password" name="password" placeholder="Enter password"><br><br>
+     <label for="username ">Username</label>
+     <input type="text" name="username" placeholder="Enter username"><br><br>
+     <label for="Password">Password</label>
+     <input type="password" name="password" placeholder="Enter password"><br><br>
     <button type="submit">login</button>
     </form>
 </body>

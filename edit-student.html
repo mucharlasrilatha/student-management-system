@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    
+     nav{
+        border: 100px;
+        background-color: rgb(19, 18, 18);
+        font-size:large;
+        line-height:50px;
+        
+        height: 50px;
+        text-align:center;
+    }
+nav a{
+    
+    color:white;
+    margin-left: 60px;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+nav a:hover{
+    color:yellow;
+}
+form{
+    border: 1px solid black;
+    color:blue;
+    text-align: center;
+    width:600px;
+    margin-left: 450px;
+    background-color: rgb(133, 214, 244);
+    margin-top: 20px;
+
+}
+label{
+    display:block;
+}
+</style>
 <body>
      <nav>
         <a href="Dashboard.html">Dashboard</a>
@@ -13,9 +50,12 @@
     <a href="logout.html">logout</a>
     </nav>
     <form action="view-students.html">
-        Name <input type="text" name="name" value="srilatha"><br><br>
-        Roll No <input type="text" name="name" value="h9"><br><br>
-        Grade <input type="number" name="name" value="10"><br><br>
+        <label for="Name">Name</label> 
+        <input type="text" name="name" value="srilatha"><br><br>
+        <label for="Roll No">Roll No</label>
+         <input type="text" name="name" value="h9"><br><br>
+        <label for="Grade">Grade</label>
+        <input type="number" name="name" value="10"><br><br>
         <button type="submit">Update</button>
     </form>
     
