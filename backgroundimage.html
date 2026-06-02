@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .container{
+                display: grid;
+                grid-template-columns: 100px auto;
+                grid-template-rows: 70px auto 70px;
+                grid-template-areas: "header header "
+                                      "nav main "
+                                      "footer footer";
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                
+                color: white;
+            }
+            .i1{
+                grid-area: header;
+                background-color: black;
+                align-content: center;
+            }
+            .i2{
+                grid-area: nav;
+                background-color: beige;
+            }
+            .i3{
+                grid-area: main;
+                background-image: url("data:image/jpeg;base64,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");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .c{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .c:hover{
+                transition-property: width;
+                
+            }
+            .i4{
+                grid-area: footer;
+                background-color: rgb(92, 89, 89);
+                align-content: center;
+                
+            }
+            
+        </style>
+        
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="i1">Head</div>
+            <div class="i2">links</div>
+            <div class="i3">main
+                <div class="c">
+
+                </div>
+            </div>
+            <div class="i4">©All Copyrights reserved</div>
+        </div>
+    </body>
+</html>
+
