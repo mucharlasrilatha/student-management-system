@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-       <nav>
-        <a href="Dashboard.html">Dashboard</a>
-    <a href="add-students.html">Add Students</a>
-    <a href="view-students.html">View Students</a>
-    <a href="logout.html">logout</a>
-    </nav>
-    <style>
+     <style>
          nav{
         border: 100px;
         background-color: rgb(19, 18, 18);
@@ -55,6 +47,52 @@ th,td{
     padding: 10px;;
 }
     </style>
+      <script>
+        window.onload = function () {
+            const students = JSON.parse(localStorage.getItem("students")) || [];
+            const tbody = document.querySelector("tbody");
+
+            students.forEach((student, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.rollno}</td>
+                    <td>${student.grade}</td>
+                    <td>
+                        <a href="edit-student.html?index=${index}">Edit</a> |
+                        <a href="#" onclick="deletestu(${index}); return false;">
+                            Delete
+                        </a>
+                    </td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        };
+
+        function deletestu(index) {
+            if (confirm("Are you sure you want to delete this student?")) {
+                const students = JSON.parse(localStorage.getItem("students")) || [];
+
+                students.splice(index, 1);
+
+                localStorage.setItem("students", JSON.stringify(students));
+
+                location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+       <nav>
+        <a href="Dashboard.html">Dashboard</a>
+    <a href="add-students.html">Add Students</a>
+    <a href="view-students.html">View Students</a>
+    <a href="logout.html">logout</a>
+    </nav>
+   
+    
     <h1>Student List</h1>
     <table>
         <tr>
@@ -63,48 +101,8 @@ th,td{
             <th>Grade</th>
             <th>action</th>
         </tr>
-        <tr>
-            <td>srilatha</td>
-            <td>h9</td>
-            <td>10</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
-         <tr>
-            <td>bhanuja</td>
-            <td>h9</td>
-            <td>13</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
-         <tr>
-            <td>latha</td>
-            <td>h8</td>
-            <td>8</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
-         <tr>
-            <td>nandhu</td>
-            <td>h1</td>
-            <td>9</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
-         <tr>
-            <td>chandu</td>
-            <td>h5</td>
-            <td>14</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
-         <tr>
-            <td>pavan</td>
-            <td>h9</td>
-            <td>10</td>
-            <td><a href="edit-student.html">Edit | Delete</td>
-        
-        </tr>
+        <tbody ></tbody>
+       
     </table>
     
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+
 <style>
        nav{
         border: 100px;
@@ -51,6 +51,24 @@ nav a:hover{
    }
 
 </style>
+<script>
+    function adduser()
+    {
+        event.preventDefault();
+        const username=document.getElementById("username").value;
+        const password=document.getElementById("Password").value;
+        const user=JSON.parse(localStorage.getItem("user"));
+    
+    if(user && username===user.username && password===user.npassword)
+    {
+        alert("login successfully!");
+        window.location.href = "Dashboard.html";
+    }
+    else{
+        alert("invalid username or password")
+    }
+}
+</script>
 <body>
        <nav>
     <a href="index.html">Home</a>
@@ -58,11 +76,11 @@ nav a:hover{
     <a href="register.html">register</a>
     </nav>
     <h1>login to student management system</h1>
-    <form action="Dashboard.html">
+    <form onsubmit="adduser()" action="Dashboard.html">
      <label for="username ">Username</label>
-     <input type="text" name="username" placeholder="Enter username"><br><br>
+     <input type="text" id="username" placeholder="Enter username"><br><br>
      <label for="Password">Password</label>
-     <input type="password" name="password" placeholder="Enter password"><br><br>
+     <input type="password" id="Password" placeholder="Enter password"><br><br>
     <button type="submit">login</button>
     </form>
 </body>
