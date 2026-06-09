@@ -61,9 +61,43 @@ label{
         const username=document.getElementById("username").value;
         const newpsw=document.getElementById("NewPassword").value;
         const csw=document.getElementById("ConfirmPassword").value;
+        if (username.length < 5) {
+    alert("Username must be at least 5 characters long");
+    return;
+}
+      if (!/^[A-Za-z0-9_-]+$/.test(username)) {
+    alert("Username can contain only letters, numbers, and underscores");
+    return;
+}
+        if(newpsw.length<8)
+    {
+        alert("password must be atleat 8 characters");
+        return;
+    }
+           if(!/[A-Z]/.test(newpsw))
+    {
+        alert("password must contain uppercase character");
+        return;
+    }
+           if(!/[a-z]/.test(newpsw))
+    {
+        alert("password must contain  lowercase character");
+        return;
+    }
+           if(!/[0-9]/.test(newpsw))
+    {
+        alert("password must contain digits");
+        return;
+    }
+          if(!/[^[A-Za-z0-9]/.test(newpsw))
+    {
+        alert("Password must contain at least one special character");
+        return;
+    }
         if(newpsw!==csw)
         {
         alert("incorrect passowrd try it again");
+        return;
         
         }
         const object={

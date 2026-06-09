@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+
 <style>
     
      nav{
@@ -43,6 +43,35 @@ label{
     font-weight: bold;
 }
 </style>
+<script>
+    window.onload=function(){
+         const students=JSON.parse(localStorage.getItem("students") || "[]");
+         const params=new URLSearchParams(window.location.search);
+         const index=params.get("index");
+    document.getElementById("Name").value=students[index].name;
+    document.getElementById("Roll No").value=students[index].rollno;
+    document.getElementById("Grade").value=students[index].grade;
+    }
+    function updatefun()
+    {
+        event.preventDefault();
+         const students=JSON.parse(localStorage.getItem("students") || "[]");
+         const params=new URLSearchParams(window.location.search);
+         const index=params.get("index");
+         students[index]={
+
+           name:document.getElementById("Name").value,
+
+           rollno: document.getElementById("Roll No").value,
+           grade:document.getElementById("Grade").value
+         };
+         localStorage.setItem("students", JSON.stringify(students));
+         window.location.href="view-students.html";
+
+    }
+
+</script>
+</head>
 <body>
      <nav>
         <a href="Dashboard.html">Dashboard</a>
@@ -50,13 +79,13 @@ label{
     <a href="view-students.html">View Students</a>
     <a href="logout.html">logout</a>
     </nav>
-    <form action="view-students.html">
+    <form onsubmit="updatefun()">
         <label for="Name">Name</label> 
-        <input type="text" name="name" value="srilatha"><br><br>
+        <input type="text" id="Name" ><br><br>
         <label for="Roll No">Roll No</label>
-         <input type="text" name="name" value="h9"><br><br>
+         <input type="text" id="Roll No" ><br><br>
         <label for="Grade">Grade</label>
-        <input type="number" name="name" value="10"><br><br>
+        <input type="number" id="Grade"><br><br>
         <button type="submit">Update</button>
     </form>
     
